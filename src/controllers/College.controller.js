@@ -1,23 +1,5 @@
 import { CollegeModel } from "../models/model.index"
 import {APIError} from "../utilities/APIError"
-//get College by ID
-export const getCollegeById = async (req, res, next, id) => {
-    console.log('/chbhj ',id)
-    try {
-        const college = await CollegeModel.findById(id)
-        if (!college) {
-            return next(new APIError(400, 'College not found with this ID'))
-        }
-
-        req.college = college;
-        next();
-    } catch (error) {
-        return next(
-            new APIError(500, 'UNAUTHORIZED_REQUEST')
-        );
-    }
-
-};
 
 //post
 export const registerCollegeController = async (req, res, next) => {

@@ -1,8 +1,5 @@
 import express from 'express';
 
-import {
-    getBranchById
-} from '../controllers/Branch.controller';
 
 import {
     addRegulations,
@@ -11,9 +8,6 @@ import {
 
 
 const regulationRouter = express.Router();
-
-// params
-regulationRouter.param("branchId", getBranchById);
 
 regulationRouter
     .route('/:branchId')

@@ -1,14 +1,15 @@
-import { BranchModel,RegulationModel } from "../models/model.index"
+import { BranchModel, RegulationModel } from "../models/model.index"
 import { APIError } from "../utilities/APIError"
 
 //get All College
 export const getAllRegulations = async (req, res) => {
 
+    const id = req.params.branchId;
     try {
-        const BranchId = req.branch._id
-
-        
-
+        const BranchId = await BranchModel.findById(id)
+        if (!BranchId) {
+            return next(new APIError(400, 'Branch not found with this ID'))
+        }
         const regulationByBranchId = await RegulationModel.find({
             BranchId
         });
@@ -27,7 +28,8 @@ export const getAllRegulations = async (req, res) => {
 // add Branch to College
 export const addRegulations = async (req, res, next) => {
 
-    const data=req.body
+    const data = req.body
+    const id = req.params.branchId;
     const { name } = data
     if (!name) {
         throw new APIError(400, 'Please enter complete details');
@@ -35,7 +37,10 @@ export const addRegulations = async (req, res, next) => {
 
     try {
 
-        const BranchId = req.branch._id
+        const BranchId = await BranchModel.findById(id)
+        if (!BranchId) {
+            return next(new APIError(400, 'Branch not found with this ID'))
+        }
 
         const regulation = await RegulationModel.findOne({
             $and: [{ name }, { BranchId }]
@@ -47,9 +52,9 @@ export const addRegulations = async (req, res, next) => {
 
         const newRegulation = await new RegulationModel({
             name,
-            BranchId: req.branch._id
+            BranchId: BranchId
         })
-        const savedRegulation  = newRegulation.save()
+        const savedRegulation = newRegulation.save()
         res.status(200).json({
             success: true,
             savedRegulation

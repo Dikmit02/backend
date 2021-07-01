@@ -13,7 +13,7 @@ import {
 const branchRouter = express.Router();
 
 // params
-branchRouter.param("collegeId", getCollegeById);
+// branchRouter.param("collegeId", getCollegeById);
 
 
 //routes
