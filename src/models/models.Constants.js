@@ -4,3 +4,6 @@ export const REGULATION = "regulations";
 export const SEMESTER = "semesters";
 export const SUBJECT = "subjects";
 export const NOTES = "notes"
+export const QUESTIONPAPER = "questionpapers";
+export const SYLLABUS = "syllabus";
+export const RESOURCES = "resources"

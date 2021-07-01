@@ -1,7 +1,7 @@
 import { BranchModel, CollegeModel } from "../models/model.index"
 import { APIError } from "../utilities/APIError"
 
-//get All College
+//get All Branches
 export const getAllBranch = async (req, res) => {
 
     const id=req.params.collegeId;

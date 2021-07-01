@@ -1,7 +1,7 @@
 import { BranchModel, RegulationModel } from "../models/model.index"
 import { APIError } from "../utilities/APIError"
 
-//get All College
+//get All Regulations
 export const getAllRegulations = async (req, res) => {
 
     const id = req.params.branchId;
@@ -25,7 +25,7 @@ export const getAllRegulations = async (req, res) => {
     }
 };
 
-// add Branch to College
+// add Regulations
 export const addRegulations = async (req, res, next) => {
 
     const data = req.body
