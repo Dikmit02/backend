@@ -1,7 +1,7 @@
 import Mongoose from 'mongoose';
 
 import {
-    BRANCH,COLLEGE,REGULATION,SEMESTER,SUBJECT,NOTES,QUESTIONPAPER,RESOURCES,SYLLABUS
+    BRANCH,COLLEGE,REGULATION,SEMESTER,SUBJECT,NOTES,QUESTIONPAPER,RESOURCES,SYLLABUS,USERS
 } from './models.Constants';
 
 import BranchSchema from './branch.schema';
@@ -13,6 +13,7 @@ import NotesSchema from './notes.schema';
 import ResourcesSchema from './resources.schema';
 import QuestionPaperSchema from './questionpaper.schema';
 import SyallbusSchema from './syallbus.schema';
+import UserSchema from './user.schema';
 
 export const BranchModel = Mongoose.model(BRANCH, BranchSchema);
 export const CollegeModel = Mongoose.model(COLLEGE, CollegeSchema);
@@ -23,3 +24,4 @@ export const NotesModel = Mongoose.model(NOTES, NotesSchema);
 export const QuestionPaperModel = Mongoose.model(QUESTIONPAPER, QuestionPaperSchema);
 export const SyallbusModel = Mongoose.model(SYLLABUS, SyallbusSchema);
 export const ResoucesModel = Mongoose.model(RESOURCES,ResourcesSchema);
+export const UserModel =Mongoose.model(USERS, UserSchema)

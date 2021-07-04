@@ -6,6 +6,7 @@ import {
     getAllSubject
 } from "../controllers/subject.controller"
 
+import JWT_Middleware from '../middlewares/jwtMiddleware';
 
 const subjectRouter = express.Router();
 
@@ -15,7 +16,7 @@ subjectRouter
 
 subjectRouter
     .route('/:semesterId/add')
-    .post(addSubject)
+    .post(JWT_Middleware,addSubject)
 
 
 export default subjectRouter;

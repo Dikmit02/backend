@@ -8,9 +8,12 @@ import notes from "./notes.Router"
 import questionpaper from "./questionpaper.Router"
 import syallbus from "./syllabus.Router"
 import resources from "./resources.Router"
+import admin from "./admin.Router"
 
 export const router = express.Router();
 
+
+router.use("/v1/admin",admin)
 router.use("/v1/college", collegeRouter); 
 router.use("/v1/branch",branchRouter)
 router.use("/v1/regulations",regulations)

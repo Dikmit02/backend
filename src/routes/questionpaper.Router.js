@@ -6,6 +6,7 @@ import {
     getAllQestionPapers
 } from "../controllers/questionpaper.Router"
 
+import JWT_Middleware from '../middlewares/jwtMiddleware';
 
 const questionpaperRouter = express.Router();
 
@@ -15,7 +16,7 @@ questionpaperRouter
 
 questionpaperRouter
     .route('/:subjectId/add')
-    .post(addQestionPapers)
+    .post(JWT_Middleware,addQestionPapers)
 
 
 export default questionpaperRouter;

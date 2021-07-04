@@ -6,6 +6,7 @@ import {
     getAllSemesters
 } from "../controllers/semester.controller"
 
+import JWT_Middleware from '../middlewares/jwtMiddleware';
 
 const semesterRouter = express.Router();
 
@@ -15,7 +16,7 @@ semesterRouter
 
 semesterRouter
     .route('/:regulationId/add')
-    .post(addSemesters)
+    .post(JWT_Middleware,addSemesters)
 
 
 export default semesterRouter;

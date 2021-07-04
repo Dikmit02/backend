@@ -7,3 +7,4 @@ export const NOTES = "notes"
 export const QUESTIONPAPER = "questionpapers";
 export const SYLLABUS = "syllabus";
 export const RESOURCES = "resources"
+export const USERS = "users"

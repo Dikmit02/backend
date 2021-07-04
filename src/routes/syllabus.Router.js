@@ -6,6 +6,7 @@ import {
     getAllSyallbus
 } from "../controllers/syllabus.controller"
 
+import JWT_Middleware from '../middlewares/jwtMiddleware';
 
 const syllabusRouter = express.Router();
 
@@ -15,7 +16,7 @@ syllabusRouter
 
 syllabusRouter
     .route('/:subjectId/add')
-    .post(addSyallbus)
+    .post(JWT_Middleware,addSyallbus)
 
 
 export default syllabusRouter;

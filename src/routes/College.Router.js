@@ -4,6 +4,8 @@ import {
     registerCollege
 } from '../validators/Auth.validator';
 
+import JWT_Middleware from '../middlewares/jwtMiddleware';
+
 import {
     registerCollegeController,
     getAllColleges,
@@ -17,7 +19,7 @@ const collegeRouter = express.Router();
 
 collegeRouter
     .route('/register')
-    .post(validator.body(registerCollege), registerCollegeController);
+    .post(JWT_Middleware,validator.body(registerCollege), registerCollegeController);
 
 collegeRouter
     .route('/')
@@ -25,10 +27,10 @@ collegeRouter
 
 collegeRouter
     .route('/:collegeId')
-    .patch(UpdateCollege)
+    .patch(JWT_Middleware,UpdateCollege)
 
 collegeRouter
     .route('/:collegeId')
-    .delete(DeleteCollege)
+    .delete(JWT_Middleware,DeleteCollege)
 
 export default collegeRouter;

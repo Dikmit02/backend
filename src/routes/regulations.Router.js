@@ -6,6 +6,7 @@ import {
     getAllRegulations
 } from "../controllers/regulations.controller"
 
+import JWT_Middleware from '../middlewares/jwtMiddleware';
 
 const regulationRouter = express.Router();
 
@@ -15,7 +16,7 @@ regulationRouter
 
 regulationRouter
     .route('/:branchId/add')
-    .post(addRegulations)
+    .post(JWT_Middleware,addRegulations)
 
 
 export default regulationRouter;

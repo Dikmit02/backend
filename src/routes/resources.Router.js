@@ -6,6 +6,7 @@ import {
     getAllResources
 } from "../controllers/resources.controller"
 
+import JWT_Middleware from '../middlewares/jwtMiddleware';
 
 const resoucesRouter = express.Router();
 
@@ -15,7 +16,7 @@ resoucesRouter
 
 resoucesRouter
     .route('/:subjectId/add')
-    .post(addResources)
+    .post(JWT_Middleware,addResources)
 
 
 export default resoucesRouter;

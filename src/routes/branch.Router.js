@@ -5,16 +5,9 @@ import {
     addBranch
 } from '../controllers/Branch.controller';
 
-import {
-    getCollegeById
-} from "../controllers/College.controller"
-
+import JWT_Middleware from '../middlewares/jwtMiddleware';
 
 const branchRouter = express.Router();
-
-// params
-// branchRouter.param("collegeId", getCollegeById);
-
 
 //routes
 branchRouter
@@ -23,7 +16,7 @@ branchRouter
 
 branchRouter
     .route('/:collegeId/add')
-    .post(addBranch)
+    .post(JWT_Middleware,addBranch)
 
 
 

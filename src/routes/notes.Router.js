@@ -6,6 +6,8 @@ import {
     getAllNotes
 } from "../controllers/notes.controller"
 
+import JWT_Middleware from '../middlewares/jwtMiddleware';
+
 
 const notesRouter = express.Router();
 
@@ -15,7 +17,7 @@ notesRouter
 
 notesRouter
     .route('/:subjectId/add')
-    .post(addNotes)
+    .post(JWT_Middleware,addNotes)
 
 
 export default notesRouter;
